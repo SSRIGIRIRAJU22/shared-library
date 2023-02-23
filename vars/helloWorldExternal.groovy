@@ -4,5 +4,6 @@ def call(Map config = [:]) {
     //sh "./generate_pesh_passwords.py -u ${config.username} -p ${config.password} --hmc ${config.HMCs} -r ${config.rtype} -f"
     
     sh 'ls -ltr'
+    sh 'pwd'
     sh './generate_pesh_passwords.py'
 }
