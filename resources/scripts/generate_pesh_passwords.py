@@ -87,9 +87,9 @@ def generate_pesh_password(USERNAME, USERPASS, REQUEST_TYPE, HMCS, START_DATE, E
 
     # Verifying/validating the API response
     if AUTH_RES.status_code == 200:
-        print(GREEN + "Passed" + END)
+        print("Passed")
     else:
-        print(RED + "Failed" + END)
+        print("Failed")
         print(AUTH_RES.json()['message'])
         sys.exit(-1)
 
@@ -116,11 +116,11 @@ def generate_pesh_password(USERNAME, USERPASS, REQUEST_TYPE, HMCS, START_DATE, E
 
         # Verifying/validating the API response
         if REQ_PASS_RES.status_code == 200:
-            print(GREEN + "Passed" + END)
+            print("Passed")
             ALL_HMC_NAMES += " || " + i.replace(':', ' ',1)
             ALL_PESH_PASS_DICT[i] = REQ_PASS_RES.json()['data']['resultStrings']
         else:
-            print(RED + "Failed" + END)
+            print("Failed")
             print(REQ_PASS_RES.status_code)
             print(REQ_PASS_RES.json())
             sys.exit(-1)
@@ -138,14 +138,14 @@ def generate_pesh_password(USERNAME, USERPASS, REQUEST_TYPE, HMCS, START_DATE, E
                 else:
                      ALL_PESH_PASS += ' |\n'
             else:
-                print(GREEN + "Passed" + END)
+                print("Passed")
                 ALL_HMC_NAMES += '\n' + ALL_PESH_PASS
 
             FILENAME = "vhmcs_pesh_passwords_" + datetime.now().strftime("%Y%m%d%H%M%S") + ".txt"
             with open(FILENAME, 'w') as fo:
                 fo.write(ALL_HMC_NAMES)
 
-            print(str(datetime.now()).split('.')[0], ": For pesh passwords refer this file ...", BLUE + FILENAME + END)
+            print(str(datetime.now()).split('.')[0], ": For pesh passwords refer this file ...", FILENAME)
         else:
             print(HMCS)
             print(ALL_PESH_PASS_DICT)
