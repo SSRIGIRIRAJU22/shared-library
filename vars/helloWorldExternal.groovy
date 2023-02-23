@@ -5,5 +5,7 @@ def call(Map config = [:]) {
     
     sh 'ls -ltr'
     sh 'pwd'
-    sh 'python generate_pesh_passwords.py'
+    sh 'ls'
+    sh 'which python'
+    sh './generate_pesh_passwords.py'
 }
