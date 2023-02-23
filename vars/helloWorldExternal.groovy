@@ -7,7 +7,6 @@ def call(Map config = [:]) {
     writeFile file: "${config.name}", text: scriptcontents 
     sh "chmod +x ${config.name}"
     
-    
     sh 'ls -ltr'
-    sh 'python ${config.name}'
+    sh './${config.name}'
 }
