@@ -1,5 +1,5 @@
 def NAME = "Saikumar"
 
 node('master') {
-  sh "echo Hello"$NAME
+  sh "echo Hello $NAME"
 }
